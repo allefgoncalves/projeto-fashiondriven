@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br"></html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>projeto-fashiondriven</title>
+  </head>
+  <body>
+    <div class="topo">
+      <img src="./imagens/Logo.png">
+      <div class="usuario">
+
+      </div>
+    </div>
+
+      <div class="conteiner">
+        <div class="interativo">
+          <div>
+            <h2>escolha o modelo</h2>
+            <div class="modelo">
+
+            <div onclick="seleciona(this, '.modelo')" class="item">
+              <div class="imagem-tipo">
+                <img src="./imagens/Camiseta.png">
+              </div>
+              <h1>camiseta</h1>
+            </div>
+
+            <div onclick="seleciona(this, '.modelo')" class="item">
+              <div class="imagem-tipo">
+                <img src="./imagens/Mangalonga.png">
+              </div>
+              <h1>manga longa</h1>
+            </div>
+
+            <div onclick="seleciona(this, '.modelo')" class="item">
+              <div class="imagem-tipo">
+                <img src="./imagens/tshirt.png">
+              </div>
+              <h1>Tshirt</h1>
+            </div>
+          </div>
+          </div>
+
+          <h2> escolha a gola</h2>
+          <div class="gola">
+            
+            <div onclick="seleciona(this)" class="item ">
+              <div class="imagem-tipo">
+                <img src="./imagens/GolaRedonda.png">
+              </div>
+              <h1>gola redonda</h1>
+            </div>
+
+            <div onclick="seleciona(this)" class="item">
+              <div class="imagem-tipo">
+                <img src="./imagens/GolaPolo.png">
+              </div>
+              <h1>gola polo</h1>
+            </div>
+
+            <div onclick="seleciona(this)" class="item">
+              <div class="imagem-tipo">
+                <img src="./imagens/GolaV.png">
+              </div>
+              <h1>gola v</h1>
+            </div>
+          </div>
+
+          <h2>escolha o tecido</h2>
+          <div class="tecido"> 
+
+            <div onclick="seleciona(this)" class="item">
+              <div class="imagem-tipo">
+                <img src="./imagens/Algodão.png">
+              </div>
+              <h1>Algodão</h1>
+            </div>
+
+            <div onclick="seleciona(this)" class="item">
+              <div class="imagem-tipo">
+                <img src="./imagens/Poliester.png">
+              </div>
+              <h1>Poliester</h1>
+            </div>
+
+            <div onclick="seleciona(this)" class="item">
+              <div class="imagem-tipo">
+                <img src="./imagens/Seda.png">
+              </div>
+              <h1>seda</h1>
+            </div>
+          </div>
+
+          <h2>imagem de referencia</h2>
+          <input class="img-ref" placeholder="URL">
+          <button onclick="" class="inativo button inativo">botao</button>
+
+        </div>
+        <div class="logo">
+          <img src="./imagens/ilustração.png">
+        </div>
+      </div>
+    <div class="lista">
+      <h2>ultimos pedidos</h2>
+      <div class="botoes">
+        <div onclick="" class="inativo botao"><p>Todos os modelos</p></div>
+        <div onclick="" class="inativo botao"><p>T-shirt</p></div>
+        <div onclick="" class="inativo botao"><p>Camisetas</p></div>
+        <div onclick="" class="inativo botao"><p>Manga longa</p></div>
+      </div>
+      <ul>
+      </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="./script.js"></script>
+
+  </body>

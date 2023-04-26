@@ -1,0 +1,163 @@
+.img-ref{
+    height: 40px;
+    width: 100%;
+    border-radius: 10px;  
+    background-color:#b9adad;
+    margin: 10px;
+}
+
+.button{
+    height: 40px;
+    width: 80%;
+    border-radius: 10px; 
+    margin: 10px;  
+}
+
+.ativo{
+    background-color: blue;
+}
+
+.inativo{
+    background-color: #888686; 
+}
+
+h1{
+    height: 21px;
+    text-align:center;
+}
+
+h2{
+    height: 21px;
+    width: 133px;
+}
+
+.imagem-tipo > img{
+    height: 60px;
+    width: 60px;
+}
+
+.imagem-tipo{
+    border-radius: 80px;
+    height: 80px;
+    width: 80px;
+    background-color:darkred;
+    justify-content: center;
+    align-items:center ;
+    display: flex;
+    margin: 0 auto;
+}
+
+.item{
+    height: 100px;
+    width: 100px;
+    background-color: yellow;
+    margin: 0 auto;
+}
+
+.modelo{
+    justify-content: space-between;
+    align-items: center;
+    display:flex;
+    background-color: aqua;
+    margin: 5px;
+    height: 120px;
+}
+
+.gola{
+    justify-content: space-between;
+    align-items: center;
+     display:flex;
+     margin: 5px;
+     background-color: blueviolet;
+     height: 120px;
+    }
+
+.tecido{
+    justify-content: space-between;
+    align-items: center;
+    display:flex;
+    margin: 5px;
+    background-color: chartreuse;
+    height: 120px;
+}
+
+.interativo{
+    background-color:whitesmoke;
+    height: 758px;
+    width: 52%;  
+    padding: 0px 10px;
+    border-top: 89px;
+    display: flex;
+    flex-direction: column;
+}
+
+body{
+    background-color: #404EED;
+    width: 1366px;  
+    display: inline;
+}
+
+.conteiner{
+    background-color:gold;
+    width: 100%;  
+    display: flex;
+    justify-content: space-between;
+    margin-top: 89px;
+}
+
+.logo{
+    background-color:#404EED;
+    width: 48%;
+    right: auto;
+    top: 89px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.usuario{
+    background-color: grey;
+    border-radius: 10px;
+    height: 39px;
+    width: 248px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.topo{
+    background-color:#404EED;
+    height: 89px;
+    width: 100%;  
+    left: 0px;
+    top: 0px;
+    justify-content:space-between;
+    position: fixed;
+    padding-left: 80px;
+    padding-right: 53px;
+    display: flex;
+    align-items: center;
+}
+
+.teste{
+    height: 100px;
+    width: 100px; 
+    background-color: aqua;
+}
+
+.botoes{
+    display: flex;
+    gap: 50px;
+    /* align-items: center; 
+     justify-content:space-between; */
+}
+
+.lista{
+    background-color: rgb(16, 224, 19);
+    height: 89px;
+    width: 100%;  
+}
+
+.selecionado{
+    border: 2px solid #404EED;
+}
