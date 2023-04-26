@@ -4,17 +4,21 @@ let user = prompt("digite seu nome");
 let usuario = document.querySelector(".usuario");
 usuario.innerHTML = `Olá, <strong>${user}</strong>!`; 
 
-
-
 let modelo = null;
 let gola = null;
 let tecido = null;
+let imagemReferencia = document.querySelector(`.img-ref`).value;
 
 
+ 
+let imagemReferenciaInput = document.querySelector(`.img-ref`);
+imagemReferenciaInput.addEventListener("input", () =>{
+    verifica();
+})
 
-console.log(modelo);
-console.log(gola);
-console.log(tecido);
+console.log("teste2");
+console.log(imagemReferencia);
+console.log("teste3");
 
 function seleciona(escolhido, classe){
     let selecao = document.querySelector(`${classe} .selecionado`);
@@ -38,13 +42,25 @@ function seleciona(escolhido, classe){
 
 function verifica(){
     if(modelo != null){ //verifica se todos estão selecionados
+        console.log("teste1");
         if(gola != null){
             if(tecido != null){ 
-                /*if(){   //se sim => verifica a url da imagem 
-                    ClearSelecao(); //url ok => limpa a seleção
+                imagemReferencia = document.querySelector(`.img-ref`).value; 
+                if(imagemReferencia != ""){   //se sim => verifica a url da imagem 
+                    //console.log("teste5");
                     //libera o botão de finalizar o pedido
-                //url ruim => mensagem de erro 
-                }*/
+                    let botãofinal = document.querySelector(`.buttonFinal`);
+                    botãofinal.classList.remove(`inativo`);
+                    botãofinal.classList.add('ativo');
+                    botãofinal.disabled = false;
+                }
+                else{
+                    let botãofinal = document.querySelector(`.buttonFinal`);
+                    botãofinal.classList.remove(`ativo`);
+                    botãofinal.classList.add('inativo');
+                    botãofinal.disabled = true;
+
+                }
             }
         }
     }
