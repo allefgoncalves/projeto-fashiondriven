@@ -81,7 +81,7 @@ h2{
     height: 120px;
 }
 
-.interativo{
+.interativo, .MensagemFinal{
     background-color:whitesmoke;
     height: 758px;
     width: 52%;  
@@ -89,6 +89,10 @@ h2{
     border-top: 89px;
     display: flex;
     flex-direction: column;
+}
+
+.invisivel{
+    background-color: rgba(252, 252, 252, 0);
 }
 
 body{
