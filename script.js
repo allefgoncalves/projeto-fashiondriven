@@ -16,19 +16,20 @@ imagemReferenciaInput.addEventListener("input", () =>{
 })
 
 function seleciona(escolhido, classe){
+    console.log("teste 1");
     let selecao = document.querySelector(`${classe} .selecionado`);
 
     if(selecao != null)   //verificação de ja tem algum selecionado
         selecao.classList.remove(`selecionado`);
 
     escolhido.querySelector('.imagem-tipo').classList.add('selecionado');
-        
+    console.log("teste 2");
     if(classe == '.modelo'){
         Pmodelo = escolhido.querySelector('.check').innerHTML;
         if(Pmodelo == 'camiseta')
             modelo = 'top-tank';
         if(Pmodelo == 'manga longa')
-            modelo = 'top-tank';
+            modelo = 'long';
         if(Pmodelo == 'T-shirt')
             modelo = 't-shirt';
     }
@@ -57,7 +58,6 @@ function seleciona(escolhido, classe){
 
 function verifica(){
     if(modelo != null){ //verifica se todos estão selecionados
-        console.log("teste1");
         if(gola != null){
             if(tecido != null){ 
                 imagemReferencia = document.querySelector(`.img-ref`).value; 
@@ -114,18 +114,17 @@ function EnviarDados(click){
     const encoded = encodeURI(uri);
 
     let dado = {
-   "model": modelo,
-    "neck": gola,
-    "material": tecido,
-    "image":encoded,
-    "owner": user,
-    "author": user
-    } 
+    model: modelo,
+    neck: gola,
+    material: tecido,
+    image:encoded,
+    owner: user,
+    author: user
+    }; 
     console.log(dado);
     const promise = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts',dado);
     promise.then(finalizado);
     promise.catch(ErroNoServ);
-    
 }
 
 function renderizaritens(){

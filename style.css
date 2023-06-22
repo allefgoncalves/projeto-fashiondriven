@@ -1,17 +1,17 @@
-.img-ref{
-    height: 40px;
-    width: 80%;
-    border-radius: 10px;  
-    background-color:#b9adad;
-    margin: 10px;
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column  ;
 }
 
-.button, .buttonFinal{
-    height: 40px;
-    width: 80%;
+.botao{ 
+    height: 36px;
     border-radius: 10px; 
-    margin: 10px;  
+    margin: 10px; 
     text-align: center;
+    align-items: center;
+    display: flex;
+    padding: 5px;
 }
 
 .ativo{
@@ -29,7 +29,12 @@ h1{
 
 h2{
     height: 21px;
-    width: 133px;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
 }
 
 .imagem-tipo > img{
@@ -60,41 +65,49 @@ h2{
     align-items: center;
 }
 
-.modelo{
+.modelo, .gola, .tecido{
     justify-content: space-between;
     align-items: center;
     display:flex;
-    
-    margin: 5px;
-    height: 120px;
-}
-
-.gola{
-    justify-content: space-between;
-    align-items: center;
-     display:flex;
-     margin: 5px;
-     
-     height: 120px;
-    }
-
-.tecido{
-    justify-content: space-between;
-    align-items: center;
-    display:flex;
-    margin: 5px;
-   
+    margin: 5px auto 10%;
     height: 120px;
 }
 
 .interativo{
     background-color:whitesmoke;
     height: 758px;
-    width: 52%;  
-    padding: 0px 10px;
+    width: 52%; 
+    max-width:695.51px; 
     border-top: 89px;
     display: flex;
-    flex-direction: column;
+    z-index: 1;
+    border: 0.5px solid #C4C4C4;
+    padding: 10px auto;
+}
+
+.centralizando{
+    width: 360px;
+    height: 706px;
+    margin: auto;
+    flex-direction: column; 
+    display: flex;
+    justify-content: center;
+}
+
+.img-ref{
+    height: 40px;
+    width: 95%;
+    border-radius: 10px;  
+    background-color:#b9adad;
+    margin: 10px auto;
+}
+
+.button, .buttonFinal{
+    height: 40px;
+    width: 95%;
+    border-radius: 10px; 
+    margin: 10px auto;  
+    text-align: center;
 }
 
 .MensagemFinal{
@@ -107,10 +120,12 @@ h2{
     position: fixed;
     top: 85px;
     left: 0px;
+    z-index: 2;
 }
 
 .invisivel{
     background-color: rgba(252, 252, 252, 0);
+    z-index: 0;
 }
 
 body{
@@ -120,21 +135,23 @@ body{
 }
 
 .conteiner{
-    background-color:gold;
-    width: 100%;  
+    width: 100%;
+    max-width: 1366px;  
     display: flex;
     justify-content: space-between;
-    margin-top: 89px;
+    margin: 0px auto;
 }
 
 .logo{
     background-color:#404EED;
     width: 48%;
-    right: auto;
-    top: 89px;
+    max-width: 670.49px;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: no-repeat center;
+    background-size: cover;
 }
 
 .usuario{
@@ -150,15 +167,14 @@ body{
 .topo{
     background-color:#404EED;
     height: 89px;
-    width: 100%;  
-    left: 0px;
-    top: 0px;
+    width: 100%;
+    max-width: 1366px;
     justify-content:space-between;
-    position: fixed;
     padding-left: 80px;
     padding-right: 53px;
     display: flex;
     align-items: center;
+    margin: 0px auto;
 }
 
 .teste{
@@ -177,9 +193,11 @@ body{
 .lista{
     background-color: rgb(16, 224, 19);
     height: 89px;
-    width: 100%;  
+    width: 100%; 
+    max-width: 1366px; 
+    margin:0px auto;
 }
 
 .selecionado{
-    border: 2px solid #404EED;
+    border: 5px solid #404EED;
 }
