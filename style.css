@@ -129,7 +129,6 @@ h2{
 }
 
 body{
-    background-color: #404EED;
     width: 1366px;  
     display: inline;
 }
@@ -140,10 +139,11 @@ body{
     display: flex;
     justify-content: space-between;
     margin: 0px auto;
+    background-color:#404EED;
 }
 
 .logo{
-    background-color:#404EED;
+   
     width: 48%;
     max-width: 670.49px;
     height: auto;
@@ -191,8 +191,7 @@ body{
 }
 
 .lista{
-    background-color: rgb(16, 224, 19);
-    height: 89px;
+    height: 492px;
     width: 100%; 
     max-width: 1366px; 
     margin:0px auto;
@@ -200,4 +199,41 @@ body{
 
 .selecionado{
     border: 5px solid #404EED;
+}
+
+.criados{
+    display:flex;
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 400;   
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: center;
+    overflow-y:hidden;
+}
+
+.criados button{
+    width: 216px;
+    height: 257px;
+    margin:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+}
+.criados button div{
+    display: flex;
+    margin:0px auto;
+    font-family: Roboto;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.criados img{
+    width: 193px;
+    height: 195px;
+    background: no-repeat center;
+    background-size: cover;  
+    margin: 20px auto;
 }
