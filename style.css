@@ -83,6 +83,48 @@ h2{
     z-index: 1;
     border: 0.5px solid #C4C4C4;
     padding: 10px auto;
+    min-width:360px;
+}
+
+.elemento{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h4{
+    font-family: Roboto;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 42px;
+    letter-spacing: 0em;
+    text-align: left;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h5{
+    color:#404EED;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.elemento img{
+    max-width: 437px;
+    max-height: 634px;
+    background: no-repeat center;
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .centralizando{
@@ -143,7 +185,6 @@ body{
 }
 
 .logo{
-   
     width: 48%;
     max-width: 670.49px;
     height: auto;
@@ -152,6 +193,10 @@ body{
     justify-content: center;
     background: no-repeat center;
     background-size: cover;
+}
+
+.logo img{
+   max-width: 100%;
 }
 
 .usuario{
@@ -237,3 +282,4 @@ body{
     background-size: cover;  
     margin: 20px auto;
 }
+

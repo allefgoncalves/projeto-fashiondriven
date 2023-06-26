@@ -1,5 +1,98 @@
 axios.defaults.headers.common['Authorization'] = 'ab7bm1T0yWe01HwEY4ZPFk8l';
 
+let y;//usado em clearinterval na funcion renderizarInicio
+
+function  renderizarInicio(){
+    clearInterval(y);
+    let elemento = document.querySelector(`.interativo`); 
+    elemento.innerHTML =`
+        <div class="centralizando">
+            <h2>escolha o modelo</h2>
+            <div class="modelo">
+
+            <div onclick="seleciona(this,'.modelo')" class="item">
+                <div class="imagem-tipo">
+                    <img src="./imagens/Camiseta.png">
+                </div>
+                <div class="check">camiseta</div>
+            </div>
+
+            <div onclick="seleciona(this,'.modelo')" class="item">
+                <div class="imagem-tipo">
+                    <img src="./imagens/Mangalonga.png">
+                </div>
+                <div class="check">manga longa</div>
+            </div>
+
+            <div onclick="seleciona(this,'.modelo')" class="item">
+                <div class="imagem-tipo">
+                <img src="./imagens/tshirt.png">
+                </div>
+                <div class="check">T-shirt</div>
+            </div>
+            </div>
+
+            <h2> escolha a gola</h2>
+            <div class="gola">
+            <div onclick="seleciona(this,'.gola')" class="item ">
+                <div class="imagem-tipo">
+                <img src="./imagens/GolaRedonda.png">
+                </div>
+                <div class="check">gola redonda</div>
+            </div>
+
+            <div onclick="seleciona(this,'.gola')" class="item">
+                <div class="imagem-tipo">
+                <img src="./imagens/GolaPolo.png">
+                </div>
+                <div class="check">gola polo</div>
+            </div>
+
+            <div onclick="seleciona(this,'.gola')" class="item">
+                <div class="imagem-tipo">
+                <img src="./imagens/GolaV.png">
+                </div>
+                <div class="check">gola v</div>
+            </div>
+            </div>
+
+            <h2>escolha o tecido</h2>
+            <div class="tecido"> 
+            <div onclick="seleciona(this,'.tecido')" class="item">
+                <div class="imagem-tipo">
+                <img src="./imagens/Algodão.png">
+                </div>
+                <div class="check">Algodão</div>
+            </div>
+
+            <div onclick="seleciona(this,'.tecido')" class="item">
+                <div class="imagem-tipo">
+                <img src="./imagens/Poliester.png">
+                </div>
+                <div class="check">Poliester</div>
+            </div>
+
+            <div onclick="seleciona(this,'.tecido')" class="item">
+                <div class="imagem-tipo">
+                <img src="./imagens/Seda.png">
+                </div>
+                <div class="check">seda</div>
+            </div>
+            </div>
+
+            <h2>imagem de referencia</h2>
+            <input class="img-ref" placeholder="URL">
+            <button onclick="EnviarDados()" class="inativo buttonFinal" disabled>confirmar pedido</button>
+        </div>
+    `;
+}
+
+renderizarInicio();
+
+let promise = axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts');
+promise.then(salvarmodelos);
+promise.catch(console.log('deu errado'));
+
 let user = prompt("digite seu nome");
 let usuario = document.querySelector(".usuario");
 usuario.innerHTML = `Olá, <strong>${user}</strong>!`;
@@ -16,14 +109,12 @@ imagemReferenciaInput.addEventListener("input", () => {
 })
 
 function seleciona(escolhido, classe) {
-    console.log("teste 1");
     let selecao = document.querySelector(`${classe} .selecionado`);
 
     if (selecao != null)   //verificação de ja tem algum selecionado
         selecao.classList.remove(`selecionado`);
 
     escolhido.querySelector('.imagem-tipo').classList.add('selecionado');
-    console.log("teste 2");
     if (classe == '.modelo') {
         Pmodelo = escolhido.querySelector('.check').innerHTML;
         if (Pmodelo == 'camiseta')
@@ -62,7 +153,7 @@ function verifica() {
             if (tecido != null) {
                 imagemReferencia = document.querySelector(`.img-ref`).value;
                 if (imagemReferencia != "") {   //se sim => verifica a url da imagem 
-                    //console.log("teste5");
+                    console.log("teste5");
                     //libera o botão de finalizar o pedido
                     let botãofinal = document.querySelector(`.buttonFinal`);
                     botãofinal.classList.remove(`inativo`);
@@ -80,36 +171,47 @@ function verifica() {
     }
 }
 
-function finalizado(erro) {
-    if (erro.response.status === 422) {
-        alert(erro.response.value);
-        console.log("erro 442");
-    }
-    if (erro.response.status === 211) {
-        console.log("status 211");
-        let mensagem = document.querySelector(`.MensagemFinal`);
-        mensagem.innerHTML =
-            `<div class= 'elemento'>
+function finalizado() {    
+    let elemento = document.querySelector(`.interativo`);
+    elemento.innerHTML =`
+        <div class= 'elemento'>
             <h4>Pedido realizado com sucesso!</h4>
             <div>
                 <img src='${imagemReferencia}'>
             </div>
-            <h5>voltando para a pagina principal em 10s<h5>
+            <h5 class="timer"><h5>
         </div>
-        `;
-        mensagem.classList.remove('invisivel');
+   `;
+    let x =10;
+    y = setInterval(() => {
+        console.log('timer');    
+        if(x== -1){
+           renderizarInicio();
+            // testes para voltar funcionar o input e liberar o  botao final na segunda vez de escolha
+            // imagemReferencia = document.querySelector(`.img-ref`).value;
+            // imagemReferenciaInput = document.querySelector(`.img-ref`);
+            // imagemReferenciaInput.addEventListener("input", () => {
+            //     verifica();
+            // })
+            imagemReferencia = "";
+            modelo = null;
+            gola = null;
+            tecido = null;
 
-        ClearSelecao();
-    }
-    console.log("erro numeral");
+            promise = axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts');
+            promise.then(salvarmodelos);
+            promise.catch(console.log('deu errado'));
+            renderizartodos();              
+        }
+        else{
+            let seg = document.querySelector(`.timer`);
+            seg.innerHTML=`voltando para a pagina principal em ${x}s`;                
+            x--;
+        } 
+    }, 1000);
 }
 
-function ErroNoServ() {
-    console.log("erro");
-}
-
-function EnviarDados(click) {
-    console.log("teste enviados");
+function EnviarDados() {
     const uri = imagemReferencia;
     const encoded = encodeURI(uri);
 
@@ -122,16 +224,17 @@ function EnviarDados(click) {
         author: user
     };
 
-    console.log(dado);
+    ///console.log(dado.image);
     const promise = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', dado);
-    promise.then(finalizado);
-    promise.catch(ErroNoServ);
-}
-
-function renderizaritens() {
-    const dado = document.querySelector('criados');
-    dado.innerHTML = ''
-
+    promise.then(finalizado());
+    promise.catch( function(erro){// modificar 
+        if ( erro.response.status === 422){
+            alert('erro no pedido, tente novamente');
+        }else{
+            alert('erro no servidor');
+        }
+        //até aqui
+    });
 }
 
 function ClearSelecao() { //desmarca todos os itens 
@@ -168,7 +271,7 @@ function renderizar(data) {
                 <img src="${data.image}">
                 <div>
                     <strong>criador: </strong>
-                    <P> ${data.author}</P>
+                    <P> ${data.owner}</P>
                 </div>
             </button>
         </li>
@@ -186,11 +289,11 @@ function salvarmodelos(obj){
 
 function renderizartodos() {
     elementoUl.innerHTML = "";
-    // console.log(objmodelos);
-     console.log(objmodelos[0]);
+    //console.log(objmodelos);
+    //console.log(objmodelos[0]);
     //console.log(objmodelos.length);
     for (let i = 0; i < objmodelos.length; i++) {
-        // console.log(objmodelos[i]);
+        //console.log(objmodelos[i]);
         renderizar(objmodelos[i]);
     }
 }
@@ -228,9 +331,7 @@ function renderizarmangaLonga() {
     }
 }
 
-const promise = axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts');
-promise.then(salvarmodelos);
-promise.catch(console.log('deu errado'));
+
 
 //modo offline
 /*
