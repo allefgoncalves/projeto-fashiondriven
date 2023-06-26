@@ -86,6 +86,10 @@ h2{
     min-width:360px;
 }
 
+.predefinido{
+    
+}
+
 .elemento{
     display: flex;
     flex-direction: column;

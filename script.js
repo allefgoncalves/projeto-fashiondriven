@@ -193,14 +193,14 @@ function finalizado() {
             // imagemReferenciaInput.addEventListener("input", () => {
             //     verifica();
             // })
-            imagemReferencia = "";
-            modelo = null;
-            gola = null;
-            tecido = null;
+            // imagemReferencia = "";
+            // modelo = null;
+            // gola = null;
+            // tecido = null;
 
             promise = axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts');
             promise.then(salvarmodelos);
-            promise.catch(console.log('deu errado'));
+            promise.catch(console.log('deu errado aqui'));
             renderizartodos();              
         }
         else{
@@ -267,7 +267,7 @@ function renderizar(data) {
     //console.log(data.image);
     elementoUl.innerHTML += `
         <li>
-            <button>
+            <button onclick ="modelopredefinido(${data})">
                 <img src="${data.image}">
                 <div>
                     <strong>criador: </strong>
@@ -329,6 +329,37 @@ function renderizarmangaLonga() {
             renderizar(objmodelos[i]);
         }
     }
+}
+
+//bonus
+function cancelado(){
+    const elemento = document.querySelector(`.predefinido`);
+    elemento = ``;
+}
+
+function confirmado(){
+    const elemento = document.querySelector(`.msg`);
+    elemento=`
+        <p>pedido realizado com sucesso</p>
+        <button onclick="cancelado">fechar</button>
+    `;
+}
+
+function modelopredefinido(data){
+    const elemento = document.querySelector(`.predefinido`);
+    elemento =`
+        <div class="fumaça">
+            <div class="msg">   
+                <img src="${data.image}">
+                <div>
+                    <P>${data.model} com ${data.neck} de ${data.material}</P>
+                    <P><strong>criador: </strong>${data.owner}</P>
+                    <button class = "confirma" onclick ="confirmado">confirmar pedido </button>
+                    <button class = "cancela" onclick ="cancelado">cancelar</button>
+                </div> 
+            </div>
+        </div>
+    `;
 }
 
 
